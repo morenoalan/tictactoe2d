@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1' />
+    <title id='title'>Tic-Tac-Toe 2D</title>
+    <link id='favicon' rel='shortcut icon' href='' alt='tictactoe2d-logo' />
+    <meta name='description' content='The tradicional game, Tic-Tac-Toe' />
+    <meta name='keywords' content='tic-tac-toe, noughts and crosses, Xs and Os' />
+    <meta name='author' content='github.com/morenoalan' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='crossorigin' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fredoka+One' />
+    <link rel='stylesheet' href='style.css' type='text/css' />
+</head>
+<body>
+    <noscript>
+		<br />
+		You need to enable JavaScript to run this app.<br />
+        Você precisa ativar o JavaScript para executar esta aplicação.<br />
+		<br />
+    </noscript>
+    <header>
+        <figure>
+            <figcaption>
+                <h1>Tic-Tac-Toe 2D</h1>
+            </figcaption>
+        </figure>
+        <ul id='settings' class='settings display-none'>
+            <li>
+                <button id='set-difficult'>
+                </button>
+            </li>
+            <li>
+                <button id='set-theme'>
+                </button>
+            </li>
+            <li>
+                <button id='set-lang'>
+                </button>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section id='scoreboard'>
+            <p></p>
+        </section>
+        <section id='board'>
+            <ul>
+                <li>
+                    <button id='tile1' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile2' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile3' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile4' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile5' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile6' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile7' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile8' class='button' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile9' class='button' onclick='Mark(this);'></button>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/tictactoe2d' target='_blank'>Repository</a></p>
+    </footer>
+    <script type='text/javascript' id='script' src='script.js'></script>
+</body>
+</html>
