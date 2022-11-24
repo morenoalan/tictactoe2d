@@ -1,35 +1,41 @@
 const winConditions = [
     ['tile1', 'tile2', 'tile3'],
-    ['tile1', 'tile5', 'tile9'],
+    ['tile4', 'tile5', 'tile6'],
+    ['tile7', 'tile8', 'tile9'],
     ['tile1', 'tile4', 'tile7'],
     ['tile2', 'tile5', 'tile8'],
-    ['tile4', 'tile5', 'tile6'],
-    ['tile3', 'tile5', 'tile7'],
     ['tile3', 'tile6', 'tile9'],
-    ['tile7', 'tile8', 'tile9'],
+    ['tile1', 'tile5', 'tile9'],
+    ['tile3', 'tile5', 'tile7'],
 ];
-var currentPlayer = ['playerX', 'playerO'];
-var playerX = [];
-var playerO = [];
 
-function VerifyVictory(currentPlayer){
+var playersData = [
+    {
+        'player':'X',
+        'name':'John',
+        'markedTiles':[]
+    },
+    {
+        'player':'O',
+        'name':'Mary',
+        'markedTiles':[]
+    }
+];
+
+function VerifyVictory(){
     for(let i=0; i<winConditions.length; i++){
-        if(winConditions[i].every(elem => eval(currentPlayer).includes(elem))){
-            console.log(currentPlayer+' wins!');
+        if(winConditions[i].every(elem => playersData[0].markedTiles.includes(elem))){
+            console.log(playersData[0].name+' wins!');
         }
     }
 }
 
 function Mark(tile){
     if(tile.innerHTML == ''){
-        if(currentPlayer[0] == 'playerX'){
-            tile.innerHTML = 'X';
-            playerX.push(tile.getAttribute('id'));
-        }else if(currentPlayer[0] == 'playerO'){
-            tile.innerHTML = 'O';
-            playerO.push(tile.getAttribute('id'));
-        }
+        tile.innerHTML = playersData[0].player;
+        playersData[0].markedTiles.push(tile.getAttribute('id'));
+        console.log(playersData[0].markedTiles);
+        VerifyVictory();
+        playersData.push(playersData.splice(0,1)[0]);
     }
-    VerifyVictory(currentPlayer[0]);
-    currentPlayer.push(currentPlayer.splice(0,1)[0]);
 }
