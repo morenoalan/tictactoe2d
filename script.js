@@ -9,13 +9,14 @@ const winConditions = [
     ['tile7', 'tile8', 'tile9'],
 ];
 var currentPlayer = ['playerX', 'playerO'];
-var markedTilesX = [];
-var markedTilesO = [];
+var playerX = [];
+var playerO = [];
 
-function VerifyVictory(){
+function VerifyVictory(currentPlayer){
     for(let i=0; i<winConditions.length; i++){
-        console.log(winConditions[i].every(elem => markedTilesX.includes(elem)));
-        return;
+        if(winConditions[i].every(elem => eval(currentPlayer).includes(elem))){
+            console.log(currentPlayer+' wins!');
+        }
     }
 }
 
@@ -23,12 +24,12 @@ function Mark(tile){
     if(tile.innerHTML == ''){
         if(currentPlayer[0] == 'playerX'){
             tile.innerHTML = 'X';
-            markedTilesX.push(tile.getAttribute('id'));
+            playerX.push(tile.getAttribute('id'));
         }else if(currentPlayer[0] == 'playerO'){
             tile.innerHTML = 'O';
-            markedTilesO.push(tile.getAttribute('id'));
+            playerO.push(tile.getAttribute('id'));
         }
     }
+    VerifyVictory(currentPlayer[0]);
     currentPlayer.push(currentPlayer.splice(0,1)[0]);
-    VerifyVictory();
 }
