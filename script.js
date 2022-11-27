@@ -11,19 +11,57 @@ const winConditions = [
 var playersData = [
     {
         'player': 'X',
-        'name': 'John',
+        'name': '1st Player',
         'markedTiles': [],
         'score': 0,
         'mode': 'live' /* live, online, hard, middle, easy */
     },
     {
         'player': 'O',
-        'name': 'Mary',
+        'name': '2nd Player',
         'markedTiles': [],
         'score': 0,
         'mode': 'live'
     }
 ];
+
+function VerifyScoreboard(){
+    let inputNameX = document.getElementById('player-x');
+    let getPlayerDataX = playersData.find(item => item.player == 'X');
+    if(inputNameX.value == ''){
+        getPlayerDataX.name = '1st Player';
+    }else{
+        getPlayerDataX.name = inputNameX.value;
+    }
+
+    let inputNameO = document.getElementById('player-o');
+    let getPlayerDataO = playersData.find(item => item.player == 'O');
+    if(inputNameO.value == ''){
+        getPlayerDataO.name = '2nd Player';
+    }else if(inputNameO.value == inputNameX.value){
+        getPlayerDataO.name = inputNameO.value + ' 2';
+    }else{
+        getPlayerDataO.name = inputNameO.value;
+    }
+
+    let scoreX = document.getElementById('score-x');
+    scoreX.innerHTML = getPlayerDataX.score;
+
+    let scoreO = document.getElementById('score-o');
+    scoreO.innerHTML = getPlayerDataO.score;
+}
+
+function UpdateStatus(){
+    let status;
+    if(statusGame == 'stopped'){
+        status = playersData[1].name+' wins! Press Start';
+    }else if(playersData[0].name.slice(-1) == 's'){
+        status = playersData[0].name+'\' turn';
+    } else {
+        status = playersData[0].name+'\'s turn';
+    }
+    document.getElementById('status').children[0].innerHTML = status;
+}
 
 var statusGame = 'playing';
 function StartGame(){
@@ -35,7 +73,9 @@ function StartGame(){
     for(let j = 0; j < tilesList.length; j++){
         tilesList[j].innerHTML = '';
     }
-    console.log(document.getElementById('playerX').value);
+    VerifyScoreboard();
+    UpdateStatus();
+    console.log(document.getElementById('player-x').value);
 }
 
 function VerifyVictory(){
@@ -56,5 +96,9 @@ function Mark(tile){
         console.log(playersData[0].markedTiles);
         VerifyVictory();
         playersData.push(playersData.splice(0,1)[0]);
+        VerifyScoreboard();
+        UpdateStatus();
     }
 }
+
+//Next step: verify draw status into VeriFyVictory() and UpdateStatus();

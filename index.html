@@ -27,28 +27,36 @@
                 <h1>Tic-Tac-Toe 2D</h1>
             </figcaption>
         </figure>
-        <ul id='settings' class='settings display-none'>
-            <li>
-                <button id='set-difficult'>
-                </button>
-            </li>
+        <ul id='settings' class='settings'>
             <li>
                 <button id='set-theme'>
+                    theme
                 </button>
             </li>
             <li>
                 <button id='set-lang'>
+                    lang
+                </button>
+            </li>
+            <li>
+                <button id='set-mode'>
+                    mode
                 </button>
             </li>
         </ul>
     </header>
     <main>
-        <section id='scoreboard'>
-            <input id='playerX' type='text' class='input' placeholder='1st player' />
-            <input id='playerO' type='text' class='input' placeholder='2nd player'/>
-            <p></p>
+        <section id='scoreboard' class='scoreboard'>
+            <input id='player-x' type='text' class='input' placeholder='1st player' />
+            <p id='score-x'>0</p>
+            <p>x</p>
+            <p id='score-o'>0</p>
+            <input id='player-o' type='text' class='input' placeholder='2nd player' />
         </section>
-        <section id='board'>
+        <section id='status' class='status'>
+            <p>Press Start</p>
+        </section>
+        <section id='board' class='board'>
             <ul>
                 <li>
                     <button id='tile1' class='tile button' onclick='Mark(this);'></button>

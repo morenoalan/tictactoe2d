@@ -66,13 +66,13 @@ h1 {
 .settings {
     float: right;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    height: 100%;
-    width: 40px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
 }
-#settings button {
+.settings button {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -92,12 +92,22 @@ main {
 ul {
     list-style: none;
 }
-#scoreboard {
+.scoreboard {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-#board > ul {
+.scoreboard > input {
+    width: 90px;
+}
+.scoreboard > p:not(:nth-of-type(2)){
+    margin: 0 10px 0 10px;
+}
+.status {
+    margin-top:  10px;
+}
+.board > ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
