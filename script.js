@@ -10,16 +10,18 @@ const winConditions = [
 ];
 var playersData = [
     {
-        'player':'X',
-        'name':'John',
-        'markedTiles':[],
-        'score': 0
+        'player': 'X',
+        'name': 'John',
+        'markedTiles': [],
+        'score': 0,
+        'mode': 'live' /* live, online, hard, middle, easy */
     },
     {
-        'player':'O',
-        'name':'Mary',
-        'markedTiles':[],
-        'score': 0
+        'player': 'O',
+        'name': 'Mary',
+        'markedTiles': [],
+        'score': 0,
+        'mode': 'live'
     }
 ];
 
@@ -33,6 +35,7 @@ function StartGame(){
     for(let j = 0; j < tilesList.length; j++){
         tilesList[j].innerHTML = '';
     }
+    console.log(document.getElementById('playerX').value);
 }
 
 function VerifyVictory(){
