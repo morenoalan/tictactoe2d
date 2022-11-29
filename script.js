@@ -24,6 +24,7 @@ var playersData = [
         'mode': 'live'
     }
 ];
+var statusGame = 'playing';
 
 function VerifyScoreboard(){
     let inputNameX = document.getElementById('player-x');
@@ -53,17 +54,32 @@ function VerifyScoreboard(){
 
 function UpdateStatus(){
     let status;
-    if(statusGame == 'stopped'){
-        status = playersData[1].name+' wins! Press Start';
+    if(statusGame == 'draw'){
+        status = 'Draw! Press Start';
+    }else if(statusGame == 'stopped'){
+        status = playersData[1].name + ' wins! Press Start';
     }else if(playersData[0].name.slice(-1) == 's'){
-        status = playersData[0].name+'\' turn';
-    } else {
-        status = playersData[0].name+'\'s turn';
+        status = playersData[0].name + '\' turn';
+    }else{
+        status = playersData[0].name + '\'s turn';
     }
     document.getElementById('status').children[0].innerHTML = status;
 }
 
-var statusGame = 'playing';
+function VerifyVictory(){
+    for(let i=0; i<winConditions.length; i++){
+        if(winConditions[i].every(elem => playersData[0].markedTiles.includes(elem))){
+            playersData[0].score += 1;
+            console.log(playersData[0].name + ' wins!');
+            console.log(playersData.find(item => item.player == 'X').name + ' ' + playersData.find(item => item.player == 'X').score + ' x ' + playersData.find(item => item.player == 'O').score + ' ' + playersData.find(item => item.player == 'O').name);
+            statusGame = 'stopped';
+        }/*else if(i == winConditions.length && playersData[0].markedTiles.length + playersData[1].markedTiles.length == 9){
+            console.log('draw');
+            statusGame = 'draw';
+        }*/
+    }
+}
+
 function StartGame(){
     statusGame = 'playing';
     for(let i = 0; i < playersData.length; i++){
@@ -78,17 +94,6 @@ function StartGame(){
     console.log(document.getElementById('player-x').value);
 }
 
-function VerifyVictory(){
-    for(let i=0; i<winConditions.length; i++){
-        if(winConditions[i].every(elem => playersData[0].markedTiles.includes(elem))){
-            playersData[0].score += 1;
-            console.log(playersData[0].name+' wins!');
-            console.log(playersData.find(item => item.player == 'X').name +' '+ playersData.find(item => item.player == 'X').score +' x ' + playersData.find(item => item.player == 'O').score + ' ' + playersData.find(item => item.player == 'O').name);
-            statusGame = 'stopped';
-        }
-    }
-}
-
 function Mark(tile){
     if(tile.innerHTML == '' && statusGame == 'playing'){
         tile.innerHTML = playersData[0].player;
@@ -101,4 +106,5 @@ function Mark(tile){
     }
 }
 
+//Bug: scoring 2 points per time;
 //Next step: verify draw status into VeriFyVictory() and UpdateStatus();
