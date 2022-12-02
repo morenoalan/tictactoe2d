@@ -8,6 +8,10 @@
     outline: none;
 }
 :root {
+    --color-red: #FF6B6B;
+    --color-yellow: #FFD93D;
+    --color-green: #6BCB77;
+    --color-blue: #4D96FF;
     --color-guava: #ca0b5f;
     --color-white: #ffffff;
     --color-gray-one: #D8D8D8;
@@ -61,7 +65,7 @@ h1 {
     font-size: 30px;
     height: auto;
     width: 100%;
-    color: var(--color-guava);
+    color: var(--color-gray-two);
 }
 .settings {
     float: right;
@@ -145,7 +149,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-guava);
+    background-color: var(--color-red);
     padding-top: 5px;
     padding-bottom: 5px;
     height: 30px;
