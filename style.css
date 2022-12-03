@@ -13,7 +13,7 @@
     --color-green: #6BCB77;
     --color-blue: #4D96FF;
     --color-guava: #ca0b5f;
-    --color-white: #ffffff;
+    --color-white: #000000;
     --color-gray-one: #D8D8D8;
     --color-gray-two: #696969;
     --color-body: transparent;
@@ -32,7 +32,8 @@ body {
     text-align: center;
     height: 100%;
     width: 100%;
-    background-color: var(--color-body);
+    background-color: var(--color-white);
+    color: white;
 }
 header {
     display: flex;
@@ -65,7 +66,7 @@ h1 {
     font-size: 30px;
     height: auto;
     width: 100%;
-    color: var(--color-gray-two);
+    color: var(--color-gray-one);
 }
 .settings {
     float: right;
@@ -80,7 +81,7 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
-    color: var(--color-gray-two);
+    color: var(--color-gray-one);
     cursor: pointer;
     height: 20px;
     border: none;
@@ -130,18 +131,18 @@ ul {
     height: 88px;
     border-radius: 10px;
     outline: none;
-    border: 1px solid var(--color-gray-one);
+    border: 1px solid var(--color-gray-two);
     background-color: var(--color-white);
     cursor: pointer;
     font-family: 'Fredoka One', cursive;
     font-size: 70px;
     font-weight: 900;
-    color: var(--color-gray-two);
-    box-shadow: 0 3px var(--color-gray-one);
+    color: var(--color-gray-one);
+    box-shadow: 0 3px var(--color-gray-two);
     margin-bottom: 12px;
 }
 .button:active{
-    box-shadow: 0 2px var(--color-gray-one);
+    box-shadow: 0 2px var(--color-gray-two);
     transform: translateY(1px);
 }
 footer {
