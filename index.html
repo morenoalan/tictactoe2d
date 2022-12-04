@@ -24,7 +24,7 @@
     <header>
         <figure>
             <figcaption>
-                <h1><span style='color:var(--color-red);'>Tic</span><span style='color:var(--color-yellow);'>-</span><span style='color:var(--color-green);'>Tac</span><span style='color:var(--color-yellow);'>-</span><span style='color:var(--color-blue);'>Toe</span> <span style='color:var(--color-yellow);'>2D</span></h1>
+                <h1><span>Tic</span><span> • </span><span>Tac</span><span> • </span><span>Toe</span> <span>2D</span></h1>
             </figcaption>
         </figure>
         <ul id='settings' class='settings'>
@@ -47,11 +47,15 @@
     </header>
     <main>
         <section id='scoreboard' class='scoreboard'>
-            <input id='player-x' type='text' class='input' placeholder='1st player' />
-            <p id='score-x'>0</p>
+            <div>
+                <input id='player-x' type='text' class='input' placeholder='1st player' />
+                <p id='score-x'>0</p>
+            </div>
             <p>x</p>
-            <p id='score-o'>0</p>
-            <input id='player-o' type='text' class='input' placeholder='2nd player' />
+            <div>
+                <input id='player-o' type='text' class='input' placeholder='2nd player' />
+                <p id='score-o'>0</p>
+            </div>
         </section>
         <section id='status' class='status'>
             <p>Press Start</p>
