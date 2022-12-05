@@ -121,7 +121,7 @@ ul {
     font-family: 'Fredoka One', cursive;
     font-size: 60px;
     color: var(--color-black);
-    text-shadow: 1px 2px 0px var(--color-white);
+    text-shadow: 1px 2px 0px var(--color-red);
 }
 .scoreboard div:nth-of-type(1) {
     display: flex;
@@ -145,10 +145,21 @@ ul {
 }
 .scoreboard input {
     width: 100px;
+    background-color: white;
+    height: 28px;
+    border-radius: 10px;
+    border: 2px solid var(--color-black);
+    box-shadow: 2px 3px 0px var(--color-red);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
 }
-.scoreboard div:nth-of-type(1) input,
-.scoreboard div:nth-of-type(1) input::placeholder {
-    text-align: end;
+.scoreboard div:nth-of-type(1) input {
+    text-align: right;
+    padding-right: 5px;
+}
+.scoreboard div:nth-of-type(2) input {
+    padding-left: 5px;
 }
 .status {
     /*margin-top: 10px;*/
@@ -176,7 +187,6 @@ ul {
     width: 88px;
     height: 88px;
     border-radius: 10px;
-    outline: none;
     border: 2px solid var(--color-black);
     box-shadow: 2px 3px 0px var(--color-white);
     background-color: var(--color-red);
