@@ -23,7 +23,7 @@
 html, body {
     background: var(--color-body);
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 body {
     display: flex;
@@ -35,6 +35,7 @@ body {
     width: 100%;
     background-color: var(--color-body);
     color: var(--color-black);
+    overflow-y: visible;
 }
 header {
     display: flex;
@@ -103,12 +104,15 @@ h1 > span:nth-of-type(6) {
     border: none;
     background-color: transparent;
 }
+.settings button:hover {
+    font-size: 16px;
+}
 main {
     background-color: transparent;
     height: auto;
     width: 300px;
     height: 100%;
-    overflow: hidden;
+    margin-bottom: 10px;
 }
 ul {
     list-style: none;
@@ -145,9 +149,9 @@ ul {
 }
 .scoreboard input {
     width: 100px;
-    background-color: white;
     height: 28px;
     border-radius: 10px;
+    background-color: var(--color-white);
     border: 2px solid var(--color-black);
     box-shadow: 2px 3px 0px var(--color-red);
     font-family: 'Roboto', sans-serif;
@@ -178,7 +182,7 @@ ul {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.button {
+.button-tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -197,10 +201,44 @@ ul {
     color: var(--color-black);
     text-shadow: 1px 2px 0px var(--color-white);
 }
-.button:hover {
+.button-tile-twinkle {
+    animation-name: twinkle-tile;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes twinkle-tile {
+    0% {background-color: var(--color-red);}
+    50% {background-color: var(--color-yellow);}
+}
+.button-start {
+    width: 100px;
+    background-color: var(--color-red);
+    height: 28px;
+    border-radius: 10px;
+    border: 2px solid var(--color-black);
+    box-shadow: 2px 3px 0px var(--color-white);
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-black);
+    text-shadow: 1px 2px 0px var(--color-white);
+}
+.button-start-twinkle {
+    animation-name: twinkle-start;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes twinkle-start {
+    0% {background-color: var(--color-red);}
+    50% {background-color: var(--color-yellow);}
+}
+.button:hover,
+.button-start:hover {
     border-width: 4px;
 }
-.button:active {
+.button:active,
+.button-start:active {
     transform: translateY(1px);
 }
 footer {

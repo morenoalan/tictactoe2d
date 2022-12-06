@@ -56,7 +56,7 @@ function UpdateStatus(){
     let status;
     if(statusGame == 'draw'){
         status = 'Draw! Press Start';
-    }else if(statusGame == 'stopped'){
+    }else if(statusGame == 'won'){
         status = playersData[1].name + ' wins! Press Start';
     }else if(playersData[0].name.slice(-1) == 's'){
         status = playersData[0].name + '\' turn';
@@ -72,11 +72,13 @@ function VerifyVictory(){
             playersData[0].score += 1;
             console.log(playersData[0].name + ' wins!');
             console.log(playersData.find(item => item.player == 'X').name + ' ' + playersData.find(item => item.player == 'X').score + ' x ' + playersData.find(item => item.player == 'O').score + ' ' + playersData.find(item => item.player == 'O').name);
-            statusGame = 'stopped';
-        }/*else if(i == winConditions.length && playersData[0].markedTiles.length + playersData[1].markedTiles.length == 9){
-            console.log('draw');
+            statusGame = 'won';
+            document.getElementById('button-start').classList.add('button-start-twinkle');
+            document.getElementById('button-start').classList.remove('display-none');
+            return;
+        }else if(playersData[0].markedTiles.length + playersData[1].markedTiles.length == 9){
             statusGame = 'draw';
-        }*/
+        }
     }
 }
 
@@ -85,13 +87,14 @@ function StartGame(){
     for(let i = 0; i < playersData.length; i++){
         playersData[i].markedTiles = [];
     }
-    let tilesList = document.getElementsByClassName('tile');
+    let tilesList = document.getElementsByClassName('button-tile');
     for(let j = 0; j < tilesList.length; j++){
         tilesList[j].innerHTML = '';
     }
     VerifyScoreboard();
     UpdateStatus();
-    console.log(document.getElementById('player-x').value);
+    document.getElementById('button-start').classList.remove('button-start-twinkle');
+    document.getElementById('button-start').classList.add('display-none');
 }
 
 function Mark(tile){
@@ -106,5 +109,28 @@ function Mark(tile){
     }
 }
 
-//Bug: scoring 2 points per time;
-//Next step: verify draw status into VeriFyVictory() and UpdateStatus();
+function SetReset(){
+    playersData[0].score = 0;
+    playersData[1].score = 0;
+    StartGame();
+}
+
+function SetLang(){
+    return;
+}
+
+function SetMode(){
+    return;
+}
+
+function RobotEasy(){
+    return;
+}
+
+function RobotMiddle(){
+    return;
+}
+
+function RobotHard(){
+    return;
+}
