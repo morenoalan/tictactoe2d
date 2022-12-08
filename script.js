@@ -14,14 +14,12 @@ var playersData = [
         'name': '1st Player',
         'markedTiles': [],
         'score': 0,
-        'mode': 'live' /* live, online, hard, middle, easy */
     },
     {
         'player': 'O',
         'name': '2nd Player',
         'markedTiles': [],
         'score': 0,
-        'mode': 'live'
     }
 ];
 var statusGame = 'playing';
