@@ -11,13 +11,13 @@ const winConditions = [
 var playersData = [
     {
         'player': 'X',
-        'name': '1st Player',
+        'name': '1st player',
         'markedTiles': [],
         'score': 0,
     },
     {
         'player': 'O',
-        'name': '2nd Player',
+        'name': '2nd player',
         'markedTiles': [],
         'score': 0,
     }
@@ -28,7 +28,7 @@ function VerifyScoreboard(){
     let inputNameX = document.getElementById('player-x');
     let getPlayerDataX = playersData.find(item => item.player == 'X');
     if(inputNameX.value == ''){
-        getPlayerDataX.name = '1st Player';
+        getPlayerDataX.name = '1st player';
     }else{
         getPlayerDataX.name = inputNameX.value;
     }
@@ -36,7 +36,7 @@ function VerifyScoreboard(){
     let inputNameO = document.getElementById('player-o');
     let getPlayerDataO = playersData.find(item => item.player == 'O');
     if(inputNameO.value == ''){
-        getPlayerDataO.name = '2nd Player';
+        getPlayerDataO.name = '2nd player';
     }else if(inputNameO.value == inputNameX.value){
         getPlayerDataO.name = inputNameO.value + ' 2';
     }else{
