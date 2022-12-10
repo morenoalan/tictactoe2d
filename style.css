@@ -147,7 +147,8 @@ ul {
     justify-content: flex-end;
     align-items: flex-start;
 }
-.scoreboard input {
+.input,
+.input-robot {
     width: 100px;
     height: 28px;
     border-radius: 10px;
@@ -157,6 +158,11 @@ ul {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 700;
+}
+.input-robot {
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    text-shadow: 1px 2px 0px var(--color-red);
 }
 .scoreboard div:nth-of-type(1) input {
     text-align: right;

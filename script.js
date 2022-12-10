@@ -1,3 +1,4 @@
+const allTiles = ['tile1', 'tile2', 'tile3', 'tile4', 'tile5', 'tile6', 'tile7', 'tile8', 'tile9'];
 const winConditions = [
     ['tile1', 'tile2', 'tile3'],
     ['tile4', 'tile5', 'tile6'],
@@ -14,40 +15,34 @@ var playersData = [
         'name': '1st player',
         'markedTiles': [],
         'score': 0,
+        'adversary': 'human'
     },
     {
         'player': 'O',
         'name': '2nd player',
         'markedTiles': [],
         'score': 0,
+        'adversary': 'human'
     }
 ];
 var statusGame = 'playing';
 
-function VerifyScoreboard(){
-    let inputNameX = document.getElementById('player-x');
-    let getPlayerDataX = playersData.find(item => item.player == 'X');
-    if(inputNameX.value == ''){
-        getPlayerDataX.name = '1st player';
-    }else{
-        getPlayerDataX.name = inputNameX.value;
+function NextMove(){
+    if(playersData[0].player == 'O'){
+        switch(playersData[0].adversary){
+            case 'human':
+                break;
+            case 'robotEasy':
+                RobotEasy();
+                break;
+            case 'robotMiddle':
+                RobotMiddle();
+                break;
+            case 'robotHard':
+                RobotHard();
+                break;
+        }
     }
-
-    let inputNameO = document.getElementById('player-o');
-    let getPlayerDataO = playersData.find(item => item.player == 'O');
-    if(inputNameO.value == ''){
-        getPlayerDataO.name = '2nd player';
-    }else if(inputNameO.value == inputNameX.value){
-        getPlayerDataO.name = inputNameO.value + ' 2';
-    }else{
-        getPlayerDataO.name = inputNameO.value;
-    }
-
-    let scoreX = document.getElementById('score-x');
-    scoreX.innerHTML = getPlayerDataX.score;
-
-    let scoreO = document.getElementById('score-o');
-    scoreO.innerHTML = getPlayerDataO.score;
 }
 
 function UpdateStatus(){
@@ -62,6 +57,32 @@ function UpdateStatus(){
         status = playersData[0].name + '\'s turn';
     }
     document.getElementById('status').children[0].innerHTML = status;
+}
+
+function VerifyScoreboard(){
+    let inputNameX = document.getElementById('player-x');
+    let playerDataX = playersData.find(item => item.player == 'X');
+    if(inputNameX.value == ''){
+        playerDataX.name = '1st player';
+    }else{
+        playerDataX.name = inputNameX.value;
+    }
+
+    let inputNameO = document.getElementById('player-o');
+    let playerDataO = playersData.find(item => item.player == 'O');
+    if(inputNameO.value == ''){
+        playerDataO.name = '2nd player';
+    }else if(inputNameO.value == inputNameX.value){
+        playerDataO.name = inputNameO.value + ' 2';
+    }else{
+        playerDataO.name = inputNameO.value;
+    }
+
+    let scoreX = document.getElementById('score-x');
+    scoreX.innerHTML = playerDataX.score;
+
+    let scoreO = document.getElementById('score-o');
+    scoreO.innerHTML = playerDataO.score;
 }
 
 function VerifyVictory(){
@@ -106,6 +127,7 @@ function Mark(tile){
         playersData.push(playersData.splice(0,1)[0]);
         VerifyScoreboard();
         UpdateStatus();
+        NextMove();
     }
 }
 
@@ -119,7 +141,28 @@ function SetLang(){
     return;
 }
 
-function SetMode(){
+function SetAdversary(){
+    let playerDataO = playersData.find(item => item.player == 'O');
+    switch(playerDataO.adversary){
+        case 'human':
+            playerDataO.adversary = 'robotHard';
+            playerDataO.name = 'Hard Bot';
+            document.getElementById('player-o').value = 'Hard Bot';
+            document.getElementById('player-o').setAttribute('readonly', 'readonly');
+            document.getElementById('player-o').classList.remove('input');
+            document.getElementById('player-o').classList.add('input-robot');
+            console.log('bot');
+            break;
+        case 'robotHard':
+            playerDataO.adversary = 'human';
+            playerDataO.name = '2nd player';
+            document.getElementById('player-o').value = '';
+            document.getElementById('player-o').removeAttribute('readonly');
+            document.getElementById('player-o').classList.remove('input-robot');
+            document.getElementById('player-o').classList.add('input');
+            console.log('human');
+            break;
+    }
     return;
 }
 
@@ -132,5 +175,10 @@ function RobotMiddle(){
 }
 
 function RobotHard(){
+    let playerDataX = playersData.find(item => item.player == 'X');
+    let playerDataO = playersData.find(item => item.player == 'O');
+    //let activeTiles = allTiles - (playerDataX.markedTiles.concat(playerDataO.markedTiles));
+    console.log(playerDataX.markedTiles.concat(playerDataO.markedTiles));
+    document.getElementById('tile9').click();
     return;
 }

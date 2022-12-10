@@ -38,65 +38,60 @@
                     language
                 </button>
             </li>
-            <li class='display-none'>
-                <button id='set-mode' onclick='SetMode();'>
-                    game mode
+            <li>
+                <button id='set-adversary' onclick='SetAdversary();'>
+                    adversary
                 </button>
             </li>
         </ul>
     </header>
     <main>
-        <div id='page-new' class='page display-none'>
-
-        </div>
-        <div id='page-game' class='page'>
-            <section id='scoreboard' class='scoreboard'>
-                <div>
-                    <input id='player-x' type='text' class='input' placeholder='1st player' />
-                    <p id='score-x'>0</p>
-                </div>
-                <p>x</p>
-                <div>
-                    <input id='player-o' type='text' class='input' placeholder='2nd player' />
-                    <p id='score-o'>0</p>
-                </div>
-            </section>
-            <section id='status' class='status'>
-                <p>&#8203;</p>
-            </section>
-            <section id='board' class='board'>
-                <ul>
-                    <li>
-                        <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                </ul>
-                <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
-            </section>
-        </div>
+        <section id='scoreboard' class='scoreboard'>
+            <div>
+                <input id='player-x' type='text' class='input' placeholder='1st player' />
+                <p id='score-x'>0</p>
+            </div>
+            <p>x</p>
+            <div>
+                <input id='player-o' type='text' class='input' placeholder='2nd player' />
+                <p id='score-o'>0</p>
+            </div>
+        </section>
+        <section id='status' class='status'>
+            <p>&#8203;</p>
+        </section>
+        <section id='board' class='board'>
+            <ul>
+                <li>
+                    <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+            </ul>
+            <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
+        </section>
     </main>
     <footer>
         <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/tictactoe2d' target='_blank'>Repository</a></p>
