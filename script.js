@@ -27,21 +27,35 @@ var playersData = [
 ];
 var statusGame = 'playing';
 
+function TurnTilesUnclickable(){
+    for(let i = 0; i < allTiles.length; i++){
+        document.getElementById(allTiles[i]).classList.add('unclickable');
+    }
+}
+function TurnTilesClickable(){
+    for(let i = 0; i < allTiles.length; i++){
+        document.getElementById(allTiles[i]).classList.remove('unclickable');
+    }
+}
+
 function NextMove(){
     if(playersData[0].player == 'O'){
         switch(playersData[0].adversary){
             case 'human':
+                TurnTilesClickable();
                 break;
             case 'robotEasy':
-                RobotEasy();
+                setTimeout(RobotEasy, 500);
                 break;
             case 'robotMiddle':
-                RobotMiddle();
+                setTimeout(RobotMiddle, 500);
                 break;
             case 'robotHard':
-                RobotHard();
+                setTimeout(RobotHard, 500);
                 break;
         }
+    }else{
+        TurnTilesClickable();
     }
 }
 
@@ -116,6 +130,8 @@ function StartGame(){
     UpdateStatus();
     document.getElementById('button-start').classList.remove('button-start-twinkle');
     document.getElementById('button-start').classList.add('display-none');
+    TurnTilesUnclickable();
+    NextMove();
 }
 
 function Mark(tile){
@@ -127,6 +143,7 @@ function Mark(tile){
         playersData.push(playersData.splice(0,1)[0]);
         VerifyScoreboard();
         UpdateStatus();
+        TurnTilesUnclickable();
         NextMove();
     }
 }
@@ -145,15 +162,15 @@ function SetAdversary(){
     let playerDataO = playersData.find(item => item.player == 'O');
     switch(playerDataO.adversary){
         case 'human':
-            playerDataO.adversary = 'robotHard';
-            playerDataO.name = 'Hard Bot';
-            document.getElementById('player-o').value = 'Hard Bot';
+            playerDataO.adversary = 'robotEasy';
+            playerDataO.name = 'Easy Bot';
+            document.getElementById('player-o').value = 'Easy Bot';
             document.getElementById('player-o').setAttribute('readonly', 'readonly');
             document.getElementById('player-o').classList.remove('input');
             document.getElementById('player-o').classList.add('input-robot');
-            console.log('bot');
+            console.log('easy bot');
             break;
-        case 'robotHard':
+        case 'robotEasy':
             playerDataO.adversary = 'human';
             playerDataO.name = '2nd player';
             document.getElementById('player-o').value = '';
@@ -163,22 +180,44 @@ function SetAdversary(){
             console.log('human');
             break;
     }
-    return;
+    SetReset();
+}
+
+function verifyAvailableTiles(allMarkedTiles){
+    let availableTiles = [];
+    for(let i = 0; i < allTiles.length; i++){
+        if(allMarkedTiles.includes(allTiles[i]) == false){
+            availableTiles.push(allTiles[i]);
+        }
+    }
+    return availableTiles;
 }
 
 function RobotEasy(){
-    return;
+    TurnTilesClickable();
+    let playerDataX = playersData.find(item => item.player == 'X');
+    let playerDataO = playersData.find(item => item.player == 'O');
+    let allMarkedTiles = playerDataX.markedTiles.concat(playerDataO.markedTiles);
+    let availableTiles = verifyAvailableTiles(allMarkedTiles);
+    let i = Math.floor(Math.random() * (availableTiles.length - 0.1));
+    let iWillClick = availableTiles[i];
+    document.getElementById(iWillClick).click();
 }
 
 function RobotMiddle(){
+    TurnTilesClickable();
     return;
 }
 
 function RobotHard(){
-    let playerDataX = playersData.find(item => item.player == 'X');
-    let playerDataO = playersData.find(item => item.player == 'O');
-    //let activeTiles = allTiles - (playerDataX.markedTiles.concat(playerDataO.markedTiles));
-    console.log(playerDataX.markedTiles.concat(playerDataO.markedTiles));
-    document.getElementById('tile9').click();
+    TurnTilesClickable();
     return;
 }
+
+function RobotPerfect(){
+    TurnTilesClickable();
+    return;
+}
+
+//Starting with robotEasy:
+SetAdversary();
