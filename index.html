@@ -21,87 +21,78 @@
         Você precisa ativar o JavaScript para executar esta aplicação.<br />
 		<br />
     </noscript>
-    <div id='page-main' class=''>
-        <header>
-            <figure>
-                <figcaption>
-                    <h1><span>Tic</span><span> • </span><span>Tac</span><span> • </span><span>Toe</span> <span>2D</span></h1>
-                </figcaption>
-            </figure>
-            <ul id='settings' class='settings'>
+    <header>
+        <figure>
+            <figcaption>
+                <h1><span>Tic</span><span> • </span><span>Tac</span><span> • </span><span>Toe</span> <span>2D</span></h1>
+            </figcaption>
+        </figure>
+        <ul id='settings' class='settings'>
+            <li>
+                <button id='set-reset' onclick='SetReset();'>
+                    reset score
+                </button>
+            </li>
+            <li class='display-none'>
+                <button id='set-lang' onclick='SetLang();'>
+                    language
+                </button>
+            </li>
+            <li>
+                <button id='set-adversary' onclick='SetAdversary();'>
+                    change adversary
+                </button>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section id='scoreboard' class='scoreboard'>
+            <div>
+                <input id='player-x' type='text' class='input' placeholder='1st player' />
+                <p id='score-x'>0</p>
+            </div>
+            <p>x</p>
+            <div>
+                <input id='player-o' type='text' class='input' placeholder='2nd player' />
+                <p id='score-o'>0</p>
+            </div>
+        </section>
+        <section id='status' class='status'>
+            <p>&#8203;</p>
+        </section>
+        <section id='board' class='board'>
+            <ul>
                 <li>
-                    <button id='set-reset' onclick='SetReset();'>
-                        reset score
-                    </button>
-                </li>
-                <li class='display-none'>
-                    <button id='set-lang' onclick='SetLang();'>
-                        language
-                    </button>
+                    <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
                 </li>
                 <li>
-                    <button id='set-adversary' onclick='SetAdversary();'>
-                        change adversary
-                    </button>
+                    <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
+                </li>
+                <li>
+                    <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
                 </li>
             </ul>
-        </header>
-        <main>
-            <section id='scoreboard' class='scoreboard'>
-                <div>
-                    <input id='player-x' type='text' class='input' placeholder='1st player' />
-                    <p id='score-x'>0</p>
-                </div>
-                <p>x</p>
-                <div>
-                    <input id='player-o' type='text' class='input' placeholder='2nd player' />
-                    <p id='score-o'>0</p>
-                </div>
-            </section>
-            <section id='status' class='status'>
-                <p>&#8203;</p>
-            </section>
-            <section id='board' class='board'>
-                <ul>
-                    <li>
-                        <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                </ul>
-                <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
-            </section>
-        </main>
-    </div>
-    <div id='page-information' class='display-none'></div>
-    <div id='page-historic' class='display-none'></div>
-    <div id='infobar' class='infobar'>
-        <section>
-            <input id='zoom' type='range' />
+            <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
         </section>
-    </div>
+    </main>
     <footer>
         <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/tictactoe2d' target='_blank'>Repository</a></p>
     </footer>
