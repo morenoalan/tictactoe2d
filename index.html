@@ -99,8 +99,12 @@
     <div id='infobar' class='infobar'>
         <ul>
             <li>
-                <input type='range' value='100' min='20' max='500' oninput='rangevalue.value=value+" %"'/>
-                <output id='rangevalue'>100 %</output>
+                <p>🛈</p>
+            </li>
+            <li>
+                <input id='zoom-range' type='range' value='100' min='20' max='500' oninput='rangevalue.value=value+" %"'/>
+                <input id='zoom-input' class='display-none'/>
+                <output id='rangevalue' class=''>100 %</output>
             </li>
         </ul>
     </div>
