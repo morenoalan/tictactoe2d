@@ -247,6 +247,9 @@ ul {
     transform: translateY(1px);
 }
 
+.infobar {
+    width: 100%;
+}
 .infobar * {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;

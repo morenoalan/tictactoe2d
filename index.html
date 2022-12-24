@@ -94,12 +94,21 @@
                 <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
             </section>
         </main>
-    <div id='page-stats' class='page-stats display-none'></div>
-    <div id='page-info' class='page-info display-none'></div>
+    </div>
+    <div id='page-stats' class='page-stats display-none'>
+        <header></header>
+        <main></main>
+    </div>
+    <div id='page-info' class='page-info display-none'>
+        <header>
+            <button onclick='GoPageMain();'>X</button>
+        </header>
+        <main></main>
+    </div>
     <div id='infobar' class='infobar'>
         <ul>
             <li>
-                <p>🛈</p>
+                <button onclick='GoPageInfo();'>🛈</button>
             </li>
             <li>
                 <input id='zoom-range' type='range' value='100' min='20' max='500' oninput='rangevalue.value=value+" %"'/>
@@ -111,6 +120,7 @@
     <footer>
         <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span class='invert-horizontal'>&#169;</span> <span id='copyleft-year'>2022</span> | <a href='https://www.github.com/morenoalan/tictactoe2d' target='_blank'>Repository</a></p>
     </footer>
+    <script type='text/javascript' id='navigation-script' src='navigation_script.js'></script>
     <script type='text/javascript' id='script' src='script.js'></script>
 </body>
 </html>
