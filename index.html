@@ -21,7 +21,7 @@
         Você precisa ativar o JavaScript para executar esta aplicação.<br />
 		<br />
     </noscript>
-    <div id='page-main' class=''>
+    <div id='page-main' class='pages'>
         <header>
             <figure>
                 <figcaption>
@@ -95,20 +95,23 @@
             </section>
         </main>
     </div>
-    <div id='page-stats' class='page-stats display-none'>
-        <header></header>
+    <div id='page-stats' class='pages page-stats display-none'>
+        <header>
+            <button onclick='GoPage("page-main");'>X</button>
+        </header>
         <main></main>
     </div>
-    <div id='page-info' class='page-info display-none'>
+    <div id='page-info' class='pages page-info display-none'>
         <header>
-            <button onclick='GoPageMain();'>X</button>
+            <button onclick='GoPage("page-main");'>X</button>
         </header>
         <main></main>
     </div>
     <div id='infobar' class='infobar'>
         <ul>
             <li>
-                <button onclick='GoPageInfo();'>🛈</button>
+                <button onclick='GoPage("page-info");'>🛈</button>
+                <button onclick='GoPage("page-stats");'>Stats</button>
             </li>
             <li>
                 <input id='zoom-range' type='range' value='100' min='20' max='500' oninput='rangevalue.value=value+" %"'/>

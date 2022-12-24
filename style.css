@@ -17,11 +17,11 @@
     --color-gray-one: #D8D8D8;
     --color-gray-two: #696969;
     --color-black: #000000;
-    --color-body: #c3dcff;
+    --color-lightblue: #c3dcff;
     --max-width: 300px;
 }
 html, body {
-    background: var(--color-body);
+    background: var(--color-lightblue);
     height: 100%;
     overflow-x: hidden;
 }
@@ -33,9 +33,12 @@ body {
     text-align: center;
     height: 100%;
     width: 100%;
-    background-color: var(--color-body);
+    background-color: var(--color-lightblue);
     color: var(--color-black);
     overflow-y: visible;
+}
+.pages {
+    height: 100%;
 }
 header {
     display: flex;
@@ -111,7 +114,6 @@ main {
     background-color: transparent;
     height: auto;
     width: 300px;
-    height: 100%;
     margin-bottom: 10px;
 }
 ul {
