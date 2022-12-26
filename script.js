@@ -168,7 +168,6 @@ function SetAdversary(){
             document.getElementById('player-o').setAttribute('readonly', 'readonly');
             document.getElementById('player-o').classList.remove('input');
             document.getElementById('player-o').classList.add('input-robot');
-            console.log('easy bot');
             break;
         case 'robotEasy':
             playerDataO.adversary = 'human';
@@ -177,7 +176,6 @@ function SetAdversary(){
             document.getElementById('player-o').removeAttribute('readonly');
             document.getElementById('player-o').classList.remove('input-robot');
             document.getElementById('player-o').classList.add('input');
-            console.log('human');
             break;
     }
     SetReset();

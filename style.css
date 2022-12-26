@@ -262,6 +262,7 @@ ul {
 .infobar ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-blue);
