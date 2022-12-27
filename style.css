@@ -40,7 +40,7 @@ body {
 .pages {
     height: 100%;
 }
-header {
+.header-page-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -247,6 +247,16 @@ ul {
 .button:active,
 .button-start:active {
     transform: translateY(1px);
+}
+
+.header-pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--max-width);
+    padding: 5px 0 20px 0;
+    color: var(--color-white);
 }
 
 .infobar {
