@@ -13,3 +13,8 @@ function GoPage(page){
     }
     currentPage = page;
 }
+
+var zoomPage = document.getElementById('zoom-range');
+zoomPage.addEventListener('change', (event) => {
+    document.getElementById('book').style.zoom = zoomPage.value / 100;
+});

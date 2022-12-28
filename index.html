@@ -21,98 +21,100 @@
         Você precisa ativar o JavaScript para executar esta aplicação.<br />
 		<br />
     </noscript>
-    <div id='page-main' class='pages page-main'>
-        <header class='header-page-main'>
-            <figure>
-                <figcaption>
-                    <h1><span>Tic</span><span> • </span><span>Tac</span><span> • </span><span>Toe</span> <span>2D</span></h1>
-                </figcaption>
-            </figure>
-            <ul id='settings' class='settings'>
-                <li>
-                    <button id='set-reset' onclick='SetReset();'>
-                        reset score
-                    </button>
-                </li>
-                <li class='display-none'>
-                    <button id='set-lang' onclick='SetLang();'>
-                        language
-                    </button>
-                </li>
-                <li>
-                    <button id='set-adversary' onclick='SetAdversary();'>
-                        change adversary
-                    </button>
-                </li>
-            </ul>
-        </header>
-        <main>
-            <section id='scoreboard' class='scoreboard'>
-                <div>
-                    <input id='player-x' type='text' class='input' placeholder='1st player' />
-                    <p id='score-x'>0</p>
-                </div>
-                <p>x</p>
-                <div>
-                    <input id='player-o' type='text' class='input' placeholder='2nd player' />
-                    <p id='score-o'>0</p>
-                </div>
-            </section>
-            <section id='status' class='status'>
-                <p>&#8203;</p>
-            </section>
-            <section id='board' class='board'>
-                <ul>
+    <div id='book' class='book'>
+        <div id='page-main' class='pages page-main'>
+            <header class='header-page-main'>
+                <figure>
+                    <figcaption>
+                        <h1><span>Tic</span><span> • </span><span>Tac</span><span> • </span><span>Toe</span> <span>2D</span></h1>
+                    </figcaption>
+                </figure>
+                <ul id='settings' class='settings'>
                     <li>
-                        <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
+                        <button id='set-reset' onclick='SetReset();'>
+                            reset score
+                        </button>
+                    </li>
+                    <li class='display-none'>
+                        <button id='set-lang' onclick='SetLang();'>
+                            language
+                        </button>
                     </li>
                     <li>
-                        <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
-                    </li>
-                    <li>
-                        <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
+                        <button id='set-adversary' onclick='SetAdversary();'>
+                            change adversary
+                        </button>
                     </li>
                 </ul>
-                <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
-            </section>
-        </main>
-    </div>
-    <div id='page-stats' class='pages page-stats display-none'>
-        <header class='header-pages'>
-            <p>Stats</p>
-            <button onclick='GoPage("page-main");'>X</button>
-        </header>
-        <main></main>
-    </div>
-    <div id='page-info' class='pages page-info display-none'>
-        <header class='header-pages'>
-            <p>Info</p>
-            <button onclick='GoPage("page-main");'>X</button>
-        </header>
-        <main>
-            <p>The objective in this game is get a sequence of three marks before your opponent makes it.</p>
-            <p>Each one can do only one mark per turn.</p>
-            <p>The marks sequence can be horizontal, vertical or diagonal.</p>
-            <p>Good luck!</p>
-        </main>
+            </header>
+            <main>
+                <section id='scoreboard' class='scoreboard'>
+                    <div>
+                        <input id='player-x' type='text' class='input' placeholder='1st player' />
+                        <p id='score-x'>0</p>
+                    </div>
+                    <p>x</p>
+                    <div>
+                        <input id='player-o' type='text' class='input' placeholder='2nd player' />
+                        <p id='score-o'>0</p>
+                    </div>
+                </section>
+                <section id='status' class='status'>
+                    <p>&#8203;</p>
+                </section>
+                <section id='board' class='board'>
+                    <ul>
+                        <li>
+                            <button id='tile1' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile2' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile3' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile4' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile5' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile6' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile7' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile8' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                        <li>
+                            <button id='tile9' class='button-tile' onclick='Mark(this);'></button>
+                        </li>
+                    </ul>
+                    <button id='button-start' class='button-start display-none' onclick='StartGame();'>Start</button>
+                </section>
+            </main>
+        </div>
+        <div id='page-stats' class='pages page-stats display-none'>
+            <header class='header-pages'>
+                <p>Stats</p>
+                <button onclick='GoPage("page-main");'>X</button>
+            </header>
+            <main></main>
+        </div>
+        <div id='page-info' class='pages page-info display-none'>
+            <header class='header-pages'>
+                <p>Info</p>
+                <button onclick='GoPage("page-main");'>X</button>
+            </header>
+            <main>
+                <p>The objective in this game is get a sequence of three marks before your opponent makes it.</p>
+                <p>Each one can do only one mark per turn.</p>
+                <p>The marks sequence can be horizontal, vertical or diagonal.</p>
+                <p>Good luck!</p>
+            </main>
+        </div>
     </div>
     <div id='infobar' class='infobar'>
         <ul>
