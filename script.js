@@ -1,3 +1,15 @@
+/* LocalStorage */
+function saveOnLocalStorage(){
+    localStorage.setItem('1stPlayer', document.getElementById('player-x').value);
+}
+
+window.addEventListener('beforeunload', function(){
+    saveOnLocalStorage();
+});
+
+document.getElementById('player-x').value = localStorage.getItem('1stPlayer');
+
+/* General Scripts */
 const allTiles = ['tile1', 'tile2', 'tile3', 'tile4', 'tile5', 'tile6', 'tile7', 'tile8', 'tile9'];
 const winConditions = [
     ['tile1', 'tile2', 'tile3'],

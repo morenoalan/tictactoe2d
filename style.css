@@ -231,6 +231,7 @@ ul {
 }
 .button-start {
     width: 100px;
+    margin-bottom: 10px;
     background-color: var(--color-red);
     height: 28px;
     border-radius: 10px;
@@ -312,7 +313,10 @@ ul {
     align-items: center;
 }
 #rangevalue {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 30px;
     width: 50px;
 }
