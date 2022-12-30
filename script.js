@@ -120,11 +120,14 @@ function VerifyVictory(){
             statusGame = 'won';
             document.getElementById('button-start').classList.add('button-start-twinkle');
             document.getElementById('button-start').classList.remove('display-none');
+            location.href = '#button-start';
             return;
         }else if(playersData[0].markedTiles.length + playersData[1].markedTiles.length == 9){
             statusGame = 'draw';
             document.getElementById('button-start').classList.add('button-start-twinkle');
             document.getElementById('button-start').classList.remove('display-none');
+            location.href = '#button-start';
+            return;
         }
     }
 }
