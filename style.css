@@ -231,7 +231,7 @@ ul {
 }
 .button-start {
     width: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background-color: var(--color-red);
     height: 28px;
     border-radius: 10px;
@@ -312,6 +312,24 @@ ul {
     justify-content: flex-start;
     align-items: center;
 }
+.button-infobar {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-black);
+    text-shadow: 1px 2px 0px var(--color-white);
+    cursor: pointer;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+}
+.button-infobar:hover {
+    font-size: 16px;
+}
+.button-infobar, p {
+    margin-left: 10px;
+}
+
 #rangevalue {
     display: flex;
     flex-direction: row;

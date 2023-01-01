@@ -119,8 +119,9 @@
     <div id='infobar' class='infobar'>
         <ul>
             <li>
-                <button onclick='GoPage("page-info");'>🛈</button>
-                <button onclick='GoPage("page-stats");'>Stats</button>
+                <button class='button-infobar button-info' onclick='GoPage("page-info");'>🛈</button>
+                <p>|</p>
+                <button class='button-infobar' onclick='GoPage("page-stats");'>stats</button>
             </li>
             <li>
                 <input id='zoom-range' type='range' value='100' min='20' max='500' oninput='rangevalue.value=value+" %"'/>
